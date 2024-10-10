@@ -67,3 +67,11 @@ document
       resultSection.style.display = "block"; // Show results section
     }
   });
+
+  document.querySelectorAll('.faq-question').forEach(item => {
+    item.addEventListener('click', () => {
+      const faqItem = item.parentElement;
+      faqItem.classList.toggle('active');
+    });
+  });
+  

@@ -264,3 +264,131 @@ button:hover {
   color: var(--color-white); /* Link color */
   text-decoration: underline; /* Underline */
 }
+
+section.how-it-works {
+  padding: 4rem 5rem;
+  background-color: var(--color-dark-blue);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.how-it-works h2 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 2.5rem;
+  position: relative;
+}
+
+.how-it-works h2::after {
+  content: "";
+  position: absolute;
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background-color: var(--color-primary);
+}
+
+.how-it-works .steps {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.how-it-works .step {
+  flex: 1;
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease-in-out;
+}
+
+.how-it-works .step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.how-it-works .step i {
+  font-size: 3rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.how-it-works .step h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-dark-blue);
+  margin-bottom: 1rem;
+}
+
+.how-it-works .step p {
+  color: var(--color-black);
+  line-height: 1.6;
+}
+
+section.faq {
+  padding: 4rem 5rem;
+  background-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.faq h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.faq-item {
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 0fr; /* Hide answer initially */
+  row-gap: 0.5rem;
+  border-bottom: 1px solid #ccc;
+  padding: 1.5rem 0;
+  transition: grid-template-rows 0.2s ease-in-out;
+}
+
+.faq-item.active {
+  grid-template-rows: auto 1fr; /* Expand answer when active */
+}
+
+.faq-question {
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: "\f078"; /* Font Awesome down arrow */
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  overflow: hidden;
+  max-height: 100%; /* Let the grid handle the height */
+  padding-top: 0rem;
+  font-size: 1rem;
+  opacity: 0; /* Initial hidden state */
+  transition: opacity 0.4s ease-in-out;
+}
+
+.faq-item.active .faq-answer {
+  opacity: 1; /* Fade in on expand */
+}
