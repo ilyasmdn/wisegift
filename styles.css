@@ -1,0 +1,264 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+:root {
+  --color-primary: #007ea7ff; /* Cerulean */
+  --color-secondary: #00a8e8ff; /* Picton Blue */
+  --color-black: #00171fff; /* Rich Black */
+  --color-dark-blue: #003459ff; /* Prussian Blue */
+  --color-white: #ffffffff; /* White */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  user-select: none;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  padding: 1rem;
+  padding-inline: 5rem;
+  color: var(--color-primary);
+  border-bottom: 1px solid #ccc;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 3rem;
+}
+
+header nav ul li a {
+  position: relative;
+  color: var(--color-dark-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+header nav ul li a::after {
+  position: absolute;
+  bottom: -2px;
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  border-radius: 10px;
+  background-color: var(--color-dark-blue);
+  transition: 0.3s;
+}
+
+header nav ul li a:hover::after {
+  width: 100%;
+}
+
+section {
+  padding: 2rem 5rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+section.hero {
+  gap: 2rem;
+  min-height: 90vh;
+}
+
+section .container {
+  max-width: 800px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  color: var(--color-dark-blue);
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.hero a {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-primary);
+  padding: 0.9rem 2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  gap: 0.6rem;
+  transition: 0.3s;
+}
+
+.hero a:hover {
+  background-color: var(--color-secondary);
+}
+
+section .section-title {
+  width: 100%;
+}
+
+section h2 {
+  position: relative;
+  font-size: 2rem;
+  font-weight: 900;
+  margin-bottom: 2.5rem;
+  align-self: center;
+}
+
+section h2::after {
+  position: absolute;
+  content: "";
+  top: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 7px;
+  width: 75%;
+  background-color: var(--color-primary);
+}
+
+.gift-form form {
+  width: 100%;
+  max-width: 800px;
+  background-color: var(--color-white);
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  accent-color: var(--color-primary);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  resize: none;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border: 2px solid var(--color-primary);
+}
+
+button {
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: var(--color-secondary);
+}
+
+.results {
+  margin: auto;
+  width: 100%;
+  max-width: 650px;
+}
+
+.recommendation-list {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Space between recommendations */
+}
+
+.recommendation-item {
+  overflow: hidden;
+  display: flex;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.recommendation-item img {
+  width: 50%;
+  margin-right: 15px; /* Space between image and text */
+}
+
+.recommendation-details {
+  margin: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.recommendation-details .price {
+  font-weight: 600;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 3rem;
+    text-align: center;
+}
+
+.footer-nav ul {
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove default padding */
+}
+
+.footer-nav li {
+    display: inline; /* Display items in a line */
+    margin: 0 1rem; /* Space between items */
+}
+
+.footer-nav a {
+    color: var(--color-white); /* Link color */
+    text-decoration: underline; /* Underline */
+}
+
