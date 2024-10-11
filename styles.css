@@ -425,7 +425,7 @@ section.faq {
 }
 
 .footer-nav ul {
-  list-style-type: none; /* Remove bullets */
+  list-style-type: none;
   padding: 0; /* Remove default padding */
 }
 
@@ -435,6 +435,7 @@ section.faq {
 }
 
 .footer-nav a {
+  font-size: 0.8rem;
   color: var(--color-white); /* Link color */
   text-decoration: underline; /* Underline */
 }
@@ -462,14 +463,16 @@ section.faq {
     align-items: center;
     justify-content: center;
     opacity: 0;
-    visibility: visible;
+    visibility: none;
     gap: 0;
+    pointer-events: none;
     transition: 0.3s;
   }
 
   header #navbar.show {
     opacity: 1;
     visibility: visible;
+    pointer-events: auto;
   }
 
   header nav ul li {
@@ -523,6 +526,14 @@ section.faq {
     padding: 4rem 2rem;
   }
   
+  section.faq {
+    padding: 4rem 2rem;
+  }
+
+  .footer {
+    padding: 3rem 1rem;
+  }
+
   section.how-it-works .steps {
     flex-direction: column;
   }
@@ -531,4 +542,6 @@ section.faq {
     max-width: 400px;
     margin: auto;
   }
+
+
 }
