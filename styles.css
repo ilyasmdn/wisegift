@@ -39,6 +39,11 @@ header {
   z-index: 2000;
 }
 
+header .logo {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
 header nav {
   display: flex;
   justify-content: space-between;
@@ -180,6 +185,7 @@ section h2 {
   font-size: 2rem;
   font-weight: 900;
   margin-bottom: 2.5rem;
+  text-align: center;
   align-self: center;
 }
 
@@ -452,7 +458,7 @@ section.faq {
 
 @media (max-width: 768px) {
   header {
-    padding: 1rem;
+    padding: 1rem 2rem;
   }
   header #nav-toggle {
     display: block;
@@ -550,6 +556,4 @@ section.faq {
     max-width: 400px;
     margin: auto;
   }
-
-
 }
