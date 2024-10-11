@@ -286,7 +286,6 @@ button:hover {
   font-weight: 600;
 }
 
-
 section.how-it-works {
   padding: 4rem 5rem;
   background-color: var(--color-dark-blue);
@@ -516,5 +515,20 @@ section.faq {
   section.hero h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
+  }
+} 
+
+@media (max-width: 1024px) {
+  section.how-it-works {
+    padding: 4rem 2rem;
+  }
+  
+  section.how-it-works .steps {
+    flex-direction: column;
+  }
+
+  section.how-it-works .step {
+    max-width: 400px;
+    margin: auto;
   }
 }
