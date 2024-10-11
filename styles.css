@@ -295,6 +295,14 @@ section.how-it-works {
   align-items: center;
 }
 
+section.how-it-works .steps-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+
 .how-it-works h2 {
   font-size: 2.5rem;
   font-weight: 900;
