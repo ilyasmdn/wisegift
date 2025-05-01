@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>WiseGift | Popular Gifts</title>
+    <title>WiseGift | Featured Gifts</title>
     <link rel="stylesheet" href="../styles.css" />
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -40,7 +40,7 @@
         <ul id="navbar">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/popular">Popular</a></li>
+          <li><a href="/featured">Featured</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
       </nav>
@@ -52,9 +52,9 @@
 
     <!-- Main Content -->
     <main>
-      <section class="popular">
+      <section class="featured">
         <div class="container">
-          <h2>Popular Gift Ideas</h2>
+          <h2>Featured Gift Ideas</h2>
           <div class="controls">
             <div class="filter-section">
               <button class="filter-btn active" data-filter="all">All</button>
@@ -75,12 +75,12 @@
                 <option value="default">Sort by</option>
                 <option value="price-low">Price: Low to High</option>
                 <option value="price-high">Price: High to Low</option>
-                <option value="popularity">Most Popular</option>
+                <option value="popularity">Most popular</option>
               </select>
             </div>
           </div>
 
-          <div class="popular-items" id="popular-items">
+          <div class="featured-items" id="featured-items">
             <!-- Items will be dynamically loaded here -->
           </div>
         </div>

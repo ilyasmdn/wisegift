@@ -1,4 +1,4 @@
-import { popularGifts } from "../data/data.js";
+import { featuredGifts } from "../data/data.js";
 
 // Navigation toggle
 document.getElementById("nav-toggle").addEventListener("click", () => {
@@ -36,7 +36,7 @@ function sortItems(items, sortBy) {
 
 // Load and display items
 function displayItems(items) {
-  const container = document.getElementById("popular-items");
+  const container = document.getElementById("featured-items");
   container.innerHTML = "";
 
   items.forEach((item) => {
@@ -83,8 +83,8 @@ filterButtons.forEach((button) => {
     // Filter and sort items
     let filteredItems =
       currentFilter === "all"
-        ? popularGifts
-        : popularGifts.filter((item) => item.category === currentFilter);
+        ? featuredGifts
+        : featuredGifts.filter((item) => item.category === currentFilter);
 
     // Apply current sort
     filteredItems = sortItems(filteredItems, currentSort);
@@ -101,8 +101,8 @@ document.getElementById("sort-select").addEventListener("change", (e) => {
   // Filter and sort items
   let items =
     currentFilter === "all"
-      ? popularGifts
-      : popularGifts.filter((item) => item.category === currentFilter);
+      ? featuredGifts
+      : featuredGifts.filter((item) => item.category === currentFilter);
 
   // Apply sort
   items = sortItems(items, currentSort);
@@ -112,4 +112,4 @@ document.getElementById("sort-select").addEventListener("change", (e) => {
 });
 
 // Initial display of all items
-displayItems(popularGifts);
+displayItems(featuredGifts);

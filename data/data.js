@@ -50,8 +50,8 @@ export const giftRecommendations = [
   },
 ];
 
-// Popular gifts data
-export const popularGifts = [
+// Featured gifts data
+export const featuredGifts = [
   {
     title: "Custom Photo Album",
     description: "Perfect for preserving memories",
