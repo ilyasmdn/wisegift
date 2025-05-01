@@ -1,4 +1,4 @@
-import { giftRecommendations } from './data/data.js';
+import { giftRecommendations } from "./data/data.js";
 
 document
   .getElementById("recommendation-form")
@@ -24,30 +24,36 @@ document
         const item = document.createElement("div");
         item.classList.add("recommendation-item");
         item.innerHTML = `
-          <img src="${rec.image}" alt="${rec.title}">
-          <div class="recommendation-details">
+          <div class="item-image">
+            <img src="${rec.image}" alt="${rec.title}">
+            <div class="item-overlay">
+              <a href="#" class="view-details">View Details</a>
+            </div>
+          </div>
+          <div class="item-info">
             <h3>${rec.title}</h3>
             <p>${rec.description}</p>
-            <p class="price">${rec.price}</p>
+            <span class="price">${rec.price}</span>
           </div>
         `;
         recommendationList.appendChild(item);
       });
       resultSection.style.display = "block";
     } else {
-      recommendationList.innerHTML = "<p>No recommendations found for this occasion.</p>";
+      recommendationList.innerHTML =
+        "<p>No recommendations found for this occasion.</p>";
       resultSection.style.display = "block";
     }
   });
 
-document.querySelectorAll('.faq-question').forEach(item => {
-  item.addEventListener('click', () => {
+document.querySelectorAll(".faq-question").forEach((item) => {
+  item.addEventListener("click", () => {
     const faqItem = item.parentElement;
-    faqItem.classList.toggle('active');
+    faqItem.classList.toggle("active");
   });
 });
 
-document.getElementById("nav-toggle").addEventListener('click', () => {
-  document.getElementById("nav-toggle").classList.toggle('show');
-  document.getElementById("navbar").classList.toggle('show');
+document.getElementById("nav-toggle").addEventListener("click", () => {
+  document.getElementById("nav-toggle").classList.toggle("show");
+  document.getElementById("navbar").classList.toggle("show");
 });

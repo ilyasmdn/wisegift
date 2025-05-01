@@ -1,25 +1,34 @@
-import { popularGifts } from '../data/data.js';
+import { popularGifts } from "../data/data.js";
 
 // Navigation toggle
-document.getElementById("nav-toggle").addEventListener('click', () => {
-  document.getElementById("nav-toggle").classList.toggle('show');
-  document.getElementById("navbar").classList.toggle('show');
+document.getElementById("nav-toggle").addEventListener("click", () => {
+  document.getElementById("nav-toggle").classList.toggle("show");
+  document.getElementById("navbar").classList.toggle("show");
 });
 
 // Sort items function
 function sortItems(items, sortBy) {
   const itemsCopy = [...items];
-  
-  switch(sortBy) {
-    case 'price-low':
-      return itemsCopy.sort((a, b) => 
-        parseFloat(a.price.replace('$', '')) - parseFloat(b.price.replace('$', '')));
-    case 'price-high':
-      return itemsCopy.sort((a, b) => 
-        parseFloat(b.price.replace('$', '')) - parseFloat(a.price.replace('$', '')));
-    case 'popularity':
-      return itemsCopy.sort((a, b) => 
-        parseFloat(b.loves.replace('k', '000')) - parseFloat(a.loves.replace('k', '000')));
+
+  switch (sortBy) {
+    case "price-low":
+      return itemsCopy.sort(
+        (a, b) =>
+          parseFloat(a.price.replace("$", "")) -
+          parseFloat(b.price.replace("$", ""))
+      );
+    case "price-high":
+      return itemsCopy.sort(
+        (a, b) =>
+          parseFloat(b.price.replace("$", "")) -
+          parseFloat(a.price.replace("$", ""))
+      );
+    case "popularity":
+      return itemsCopy.sort(
+        (a, b) =>
+          parseFloat(b.loves.replace("k", "000")) -
+          parseFloat(a.loves.replace("k", "000"))
+      );
     default:
       return itemsCopy;
   }
@@ -27,12 +36,12 @@ function sortItems(items, sortBy) {
 
 // Load and display items
 function displayItems(items) {
-  const container = document.getElementById('popular-items');
-  container.innerHTML = '';
+  const container = document.getElementById("popular-items");
+  container.innerHTML = "";
 
-  items.forEach(item => {
-    const itemElement = document.createElement('div');
-    itemElement.className = 'item';
+  items.forEach((item) => {
+    const itemElement = document.createElement("div");
+    itemElement.className = "item";
     itemElement.dataset.category = item.category;
 
     itemElement.innerHTML = `
@@ -58,44 +67,46 @@ function displayItems(items) {
 }
 
 // Filter functionality
-const filterButtons = document.querySelectorAll('.filter-btn');
-let currentFilter = 'all';
-let currentSort = 'default';
+const filterButtons = document.querySelectorAll(".filter-btn");
+let currentFilter = "all";
+let currentSort = "default";
 
-filterButtons.forEach(button => {
-  button.addEventListener('click', () => {
+filterButtons.forEach((button) => {
+  button.addEventListener("click", () => {
     // Remove active class from all buttons
-    filterButtons.forEach(btn => btn.classList.remove('active'));
+    filterButtons.forEach((btn) => btn.classList.remove("active"));
     // Add active class to clicked button
-    button.classList.add('active');
-    
+    button.classList.add("active");
+
     currentFilter = button.dataset.filter;
-    
+
     // Filter and sort items
-    let filteredItems = currentFilter === 'all' 
-      ? popularGifts 
-      : popularGifts.filter(item => item.category === currentFilter);
-    
+    let filteredItems =
+      currentFilter === "all"
+        ? popularGifts
+        : popularGifts.filter((item) => item.category === currentFilter);
+
     // Apply current sort
     filteredItems = sortItems(filteredItems, currentSort);
-    
+
     // Display filtered and sorted items
     displayItems(filteredItems);
   });
 });
 
 // Sort functionality
-document.getElementById('sort-select').addEventListener('change', (e) => {
+document.getElementById("sort-select").addEventListener("change", (e) => {
   currentSort = e.target.value;
-  
+
   // Filter and sort items
-  let items = currentFilter === 'all' 
-    ? popularGifts 
-    : popularGifts.filter(item => item.category === currentFilter);
-  
+  let items =
+    currentFilter === "all"
+      ? popularGifts
+      : popularGifts.filter((item) => item.category === currentFilter);
+
   // Apply sort
   items = sortItems(items, currentSort);
-  
+
   // Display filtered and sorted items
   displayItems(items);
 });
