@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WiseGift | Popular Gifts</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png" />
+    <link rel="manifest" href="/assets/site.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <h1 class="logo"><a href="/">WiseGift</a></h1>
+      <nav>
+        <ul id="navbar">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/popular">Popular</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a id="nav-toggle">
+        <i id="open" class="fa-solid fa-bars"></i>
+        <i id="close" class="fa-solid fa-xmark"></i>
+      </a>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <section class="popular">
+        <div class="container">
+          <h2>Popular Gift Ideas</h2>
+          <div class="controls">
+            <div class="filter-section">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="birthday">Birthday</button>
+              <button class="filter-btn" data-filter="anniversary">Anniversary</button>
+              <button class="filter-btn" data-filter="holiday">Holiday</button>
+              <button class="filter-btn" data-filter="just-because">Just Because</button>
+            </div>
+            
+            <div class="sort-section">
+              <select id="sort-select">
+                <option value="default">Sort by</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="popularity">Most Popular</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="popular-items" id="popular-items">
+            <!-- Items will be dynamically loaded here -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 WiseGift. All rights reserved.</p>
+      <nav class="footer-nav">
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+          <li><a href="/terms">Terms of Service</a></li>
+        </ul>
+      </nav>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>

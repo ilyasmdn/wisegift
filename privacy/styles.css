@@ -1,0 +1,58 @@
+.privacy {
+  padding: 4rem 5rem;
+}
+
+.policy-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.policy-section {
+  background: var(--color-white);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.policy-section h3 {
+  color: var(--color-dark-blue);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.policy-section p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.policy-section ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.policy-section ul li {
+  margin-bottom: 0.5rem;
+}
+
+.policy-section a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.policy-section a:hover {
+  color: var(--color-secondary);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .privacy {
+    padding: 2rem;
+  }
+
+  .policy-section {
+    padding: 1.5rem;
+  }
+}
