@@ -9,9 +9,12 @@ document
     // Get form values
     const recipientName = document.getElementById("name").value;
     const occasion = document.getElementById("occasion").value;
-    const recipientAge = document.getElementById("age").value ? parseInt(document.getElementById("age").value) : 0;
+    const recipientAge = document.getElementById("age").value
+      ? parseInt(document.getElementById("age").value)
+      : 0;
     const interests = document.getElementById("interests").value;
-    const budget = document.getElementById("budget").value || "No specific budget";
+    const budget =
+      document.getElementById("budget").value || "No specific budget";
 
     // Show loading state
     const resultSection = document.getElementById("results");
@@ -22,45 +25,53 @@ document
         <div class="loading-spinner"></div>
       </div>
     `;
-    resultSection.style.display = "block";    try {
+    resultSection.style.display = "block";
+    try {
       // Prepare request payload
       const payload = {
         recipientName,
         occasion,
         recipientAge,
         interests,
-        budget
+        budget,
       };
 
       console.log("Sending request to API:", payload);
 
-      // Call the API
+      // Call the API with additional headers to help with CORS
       const response = await fetch(API_ENDPOINT, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        body: JSON.stringify(payload)
+        body: JSON.stringify(payload),
+        mode: "cors", // Explicitly set CORS mode
       });
 
       if (!response.ok) {
         const errorText = await response.text();
         console.error("API error response:", errorText);
-        throw new Error(`API error: ${response.status}. Please try again later.`);
-      }      let data;
+        throw new Error(
+          `API error: ${response.status}. Please try again later.`
+        );
+      }
+      let data;
       try {
         data = await response.json();
         console.log("API response data:", data);
       } catch (jsonError) {
         console.error("Error parsing JSON response:", jsonError);
-        throw new Error("Unable to process the response from our recommendation service.");
+        throw new Error(
+          "Unable to process the response from our recommendation service."
+        );
       }
-      
+
       // Display results
       recommendationList.innerHTML = ""; // Clear previous results
 
       if (data.gifts && data.gifts.length > 0) {
-        data.gifts.forEach(gift => {
+        data.gifts.forEach((gift) => {
           const item = document.createElement("div");
           item.classList.add("recommendation-item");
           item.innerHTML = `
@@ -77,17 +88,44 @@ document
         noteElement.innerHTML = `<p>These recommendations were created by AI based on your inputs.</p>`;
         recommendationList.appendChild(noteElement);
       } else {
-        recommendationList.innerHTML = 
+        recommendationList.innerHTML =
           "<p>Sorry, we couldn't find any gift suggestions. Please try with different details.</p>";
-      }    } catch (error) {
+      }
+    } catch (error) {
       console.error("Error fetching gift recommendations:", error);
-      recommendationList.innerHTML = `
-        <div class="error-message">
-          <p>Sorry, something went wrong while getting your gift suggestions. Please try again later.</p>
-          <p class="error-details">Error: ${error.message}</p>
-          <p class="support-link">If this problem persists, please <a href="/contact/">contact our support team</a>.</p>
-        </div>
-      `;
+
+      // Check if it's likely a CORS error
+      const isCORSError =
+        error.message.includes("CORS") ||
+        error.message.includes("NetworkError") ||
+        error.message.includes("Failed to fetch");
+
+      if (isCORSError) {
+        recommendationList.innerHTML = `
+          <div class="error-message">
+            <p>We're having trouble connecting to our recommendation service due to a network issue.</p>
+            <p class="cors-message">This might be due to a Cross-Origin Resource Sharing (CORS) restriction.</p>
+            <p class="error-details">Error: ${error.message}</p>
+            <p>Please try using our sample recommendations instead:</p>
+            <button id="use-samples" class="sample-button">Show Sample Recommendations</button>
+          </div>
+        `;
+
+        // Add event listener for the sample button
+        document
+          .getElementById("use-samples")
+          .addEventListener("click", function () {
+            displaySampleRecommendations(occasion);
+          });
+      } else {
+        recommendationList.innerHTML = `
+          <div class="error-message">
+            <p>Sorry, something went wrong while getting your gift suggestions. Please try again later.</p>
+            <p class="error-details">Error: ${error.message}</p>
+            <p class="support-link">If this problem persists, please <a href="/contact/">contact our support team</a>.</p>
+          </div>
+        `;
+      }
     }
   });
 
