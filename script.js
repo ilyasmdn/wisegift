@@ -78,6 +78,7 @@ document
             <div class="item-info">
               <h3>${gift.name}</h3>
               <p>${gift.description}</p>
+              <span class="price">${gift.price}</span>
             </div>
           `;
           recommendationList.appendChild(item);
@@ -106,17 +107,8 @@ document
             <p>We're having trouble connecting to our recommendation service due to a network issue.</p>
             <p class="cors-message">This might be due to a Cross-Origin Resource Sharing (CORS) restriction.</p>
             <p class="error-details">Error: ${error.message}</p>
-            <p>Please try using our sample recommendations instead:</p>
-            <button id="use-samples" class="sample-button">Show Sample Recommendations</button>
           </div>
         `;
-
-        // Add event listener for the sample button
-        document
-          .getElementById("use-samples")
-          .addEventListener("click", function () {
-            displaySampleRecommendations(occasion);
-          });
       } else {
         recommendationList.innerHTML = `
           <div class="error-message">
