@@ -86,7 +86,7 @@ document
         // Add a note below recommendations
         const noteElement = document.createElement("div");
         noteElement.className = "recommendations-note";
-        noteElement.innerHTML = `<p>These recommendations were created by AI based on your inputs.</p>`;
+        noteElement.innerHTML = `<p>These recommendations were created by AI based on your inputs.<br>(We will provide gift links in the next versions)</p>`;
         recommendationList.appendChild(noteElement);
       } else {
         recommendationList.innerHTML =
