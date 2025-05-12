@@ -706,4 +706,7 @@ section.faq {
     max-width: 400px;
     margin: auto;
   }
+
+  .hero .cta {
+    flex-direction: column;
 }
