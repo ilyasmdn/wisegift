@@ -184,7 +184,14 @@ section.hero img {
   margin-bottom: 2rem;
 }
 
-.hero a {
+.hero .cta {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero .cta a:first-child {
   display: flex;
   align-items: center;
   font-weight: 600;
@@ -197,7 +204,7 @@ section.hero img {
   transition: 0.3s;
 }
 
-.hero a:hover {
+.hero .cta a:first-child :hover {
   background-color: var(--color-secondary);
 }
 
